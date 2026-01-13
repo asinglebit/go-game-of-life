@@ -2,24 +2,26 @@ package main
 
 import "fmt"
 
+const WIDTH = 100
+const HEIGHT = 50
+
 func main() {
-    rows := 5
-    cols := 5
 
-    // Create a 2D grid
-    grid := make([][]int, rows)
-    for i := 0; i < rows; i++ {
-        grid[i] = make([]int, cols)
-        for j := 0; j < cols; j++ {
-            grid[i][j] = i*cols + j + 1
-        }
-    }
+	size := WIDTH * HEIGHT
+	grid:= make([]int, size)
 
-    // Print the grid
-    for i := 0; i < rows; i++ {
-        for j := 0; j < cols; j++ {
-            fmt.Printf("%3d ", grid[i][j])
-        }
-        fmt.Println()
+	for i := 0; i < size; i++ {
+		grid[i] = i + 1
+	}
+
+    for i := 0; i < HEIGHT; i++ {
+		for j := 0; j < WIDTH; j++ {
+			if (grid[i * WIDTH + j] == 0) {
+				fmt.Printf(". ") 
+			} else {
+				fmt.Printf("x ") 
+			}
+		}
+		fmt.Print(" \n")	
     }
 }
